@@ -15,5 +15,19 @@ def fileRead(filename):
 
     return country_populations
 
+def printPopulation(country_populations):
+    for country, populations in country_populations.items():
+        print(country + ":")
+        for i in range(len(populations) - 1):
+            year1, pop1 = populations[i]
+            year2, pop2 = populations[i + 1]
+            pop_change = pop2 - pop1
+            print(year1 + " -> " + year2 + ": " + str(pop_change))
+
+
+if __name__ == "__main__":
+    filename = "population.txt"
+    country_populations = fileRead(filename)
+    printPopulation(country_populations)
 
 
